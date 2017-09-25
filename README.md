@@ -3,7 +3,7 @@
 # ubersicht-wanikani
 
 [![MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/jakeoid/waste-basket/blob/master/LICENSE.md)
-[![Python](https://img.shields.io/badge/Python-3.6-brightgreen.svg)](https://python.org/)
+[![Ubersicht](https://img.shields.io/badge/%C3%BCbersicht-CoffeeScript-brightgreen.svg)](http://http://tracesof.net/uebersicht/)
 
 This ubersicht plugin displays the number of reviews and lessons that you have on WaniKani!
 
