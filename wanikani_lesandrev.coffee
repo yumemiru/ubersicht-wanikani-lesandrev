@@ -1,5 +1,9 @@
 options =
-  api_key: ""
+  api_key: "85a8bd06685691821a53e13633c6c798"
+  spawn_x: "right"
+  spawn_y: "bottom"
+  spawn_offset_x: 0
+  spawn_offset_y: 0
 
 refreshFrequency: 900
 
@@ -11,7 +15,7 @@ render: (output) -> """
 
 <div>
 
-    <img src="/wanikani/crabigator.png">
+    <img src="/wanikani_lesandrev/crabigator.png">
 
 </div>
 
@@ -29,8 +33,8 @@ render: (output) -> """
 style: """
 
 position: absolute;
-right: 0;
-bottom 0;
+#{options.spawn_x}: #{options.spawn_offset_x}px;
+#{options.spawn_y}: #{options.spawn_offset_y}px;
 margin: 1rem;
 
 color: #FFFFFF;
