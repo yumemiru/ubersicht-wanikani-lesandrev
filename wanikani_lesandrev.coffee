@@ -1,5 +1,7 @@
 options =
-  api_key: "85a8bd06685691821a53e13633c6c798"
+  endpoint: "https://api.wanikani.com/v2/summary"
+  api_key: "" # visit https://www.wanikani.com/settings/personal_access_tokens, put your default read-only token in the quotes 
+  api_rev: "20170710"
   spawn_x: "right"
   spawn_y: "bottom"
   spawn_offset_x: 0
@@ -7,7 +9,7 @@ options =
 
 refreshFrequency: 900
 
-command: "curl --silent https://www.wanikani.com/api/user/#{options.api_key}/study-queue"
+command: "curl --silent #{options.endpoint} -H \"#{options.api_rev}\" -H \"Authorization: Bearer #{options.api_key}\""
 
 render: (output) -> """
 
@@ -15,7 +17,7 @@ render: (output) -> """
 
 <div>
 
-    <img src="/wanikani_lesandrev/crabigator.png">
+    <img src="/wanikani_lesandrev.widget/crabigator.png">
 
 </div>
 
@@ -62,15 +64,24 @@ p
 
 update: (output, domEl) ->
   try
-    data = JSON.parse(output)
+    data = JSON.parse(output).data
   catch e
     return 0
 
-  ui = data.user_information
-  ri = data.requested_information
+  try
+    lessons_count = data.lessons[0].subject_ids.length
+  catch e
+    lessons_count = 0
+    return 0
 
-  $(domEl).find('#reviews-available').text(ri.reviews_available)
-  $(domEl).find('#lessons-available').text(ri.lessons_available)
+  try
+    reviews_count = data.reviews[0].subject_ids.length
+  catch e
+    reviews_count = 0
+    return 0
+
+  $(domEl).find('#reviews-available').text(reviews_count)
+  $(domEl).find('#lessons-available').text(lessons_count)
 
 afterRender: (widget) ->
   $.ajax({

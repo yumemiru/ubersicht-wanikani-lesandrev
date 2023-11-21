@@ -15,8 +15,8 @@ This rather simple ubersicht plugin displays the number of reviews and lessons t
 
 1. Clone/Fork the repository.
 2. Unzip `wanikani_lesandrev.widget.zip`
-3. Move `wanikani_lesandrev` to your plugins folder
-4. Open `wanikani_lesandrev.coffee` and insert your [API key (v1)](https://www.wanikani.com/settings/account) to the options
+3. Move `wanikani_lesandrev.widget` to your plugins folder
+4. Open `wanikani_lesandrev.coffee` and insert your [Default read-only token](https://www.wanikani.com/settings/personal_access_tokens) into the options at the top
 5. Open Ubersicht on menubar and `Refresh All Widgets`
 
 ## License
